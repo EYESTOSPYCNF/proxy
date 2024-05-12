@@ -1,0 +1,21 @@
+<!-- result.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Browser Cloud - Result</title>
+</head>
+<body>
+    <h1>Proxy Browser Cloud - Result</h1>
+    <p>URL: {{ url }}</p>
+    
+    <h2>Available Proxies:</h2>
+    <ul>
+        {% for proxy in proxies %}
+            <li>{{ proxy }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

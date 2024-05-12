@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proxy Browser Cloud</title>
+</head>
+<body>
+    <h1>Proxy Browser Cloud</h1>
+    <form action="/proxy" method="post">
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" required>
+        
+        <!-- Agregar campo para el agente de usuario -->
+        <label for="user_agent">User Agent:</label>
+        <input type="text" id="user_agent" name="user_agent">
+        
+        <button type="submit">Navegar</button>
+    </form>
+    <hr>
+    <h2>Contenido de la URL:</h2>
+    <div>
+        {{ content|safe }}
+    </div>
+
+    <!-- Agregar formulario para seguir la redirección -->
+    {% if updated_url %}
+    <form action="/follow_redirect" method="post">
+        <input type="hidden" name="url" value="{{ updated_url }}">
+        <button type="submit">Seguir Redirección</button>
+    </form>
+    {% endif %}
+</body>
+</html>
